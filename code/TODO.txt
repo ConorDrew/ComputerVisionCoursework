@@ -1,0 +1,134 @@
+StepCount = needs chaning on get_bags_of_sifts and build_vocab
+BinSize = needs changing on get_bags_of_sifts and build_vocab
+ColorSpace = needs changing on get_bags_of_sifts and build_vocab
+
+KNN = needs changing in get_bags_of_sifts
+representativeData = needs changing in build_vocab
+RepRange(x - y) = needs changing in build_vocab
+clusters = changed in main file, passed in as varibale to build vocab
+LAMBA and Iterations changed in SVM_classify
+
+
+
+RESULTS:
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = opponent, KNN = 3, RepData = 15, 
+repRange = 1-15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.641
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = hsv, KNN = 3, RepData = 15, 
+repRange = 1-15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.632
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = rgb, KNN = 3, RepData = 15, 
+repRange = 1-15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.701200000000000	0.691333333333333	0.706666666666667
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = grey, KNN = 3, RepData = 15, 
+repRange = 1-15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.694053333333333	0.683333333333333	0.700000000000000
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = gray, KNN = 3, RepData = 15, 
+repRange = 4-18, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.680120000000000	0.643333333333333	0.693333333333334
+
+Using PHOW:
+StepCount = 3, binSize = [4 6 8 10], ColorSpace = rgb, KNN = 3, RepData = 15, TOOK AN HOUR
+repRange = 1 - 15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.673111111111111	0.670000000000000	0.676666666666667
+
+Using PHOW:
+StepCount = 3, binSize = 2, ColorSpace = rgb, KNN = 3, RepData = 15, 
+repRange = 25 - 39, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.685177777777778	0.680000000000000	0.688666666666667
+
+Using PHOW:
+StepCount = 3, binSize = 1, ColorSpace = rgb, KNN = 3, RepData = 30, 
+repRange = 50 - 79, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.635666666666667	0.611333333333333	0.652000000000000
+
+Using PHOW:
+StepCount = 3,binSize = 2, KNN = 3, RepData = 15, clusters = 500;
+LAMBDA = 10; Iterations = 1000000;
+0.692360000000000	0.683333333333333	0.698666666666667
+
+stepCount = 5, KNN = 3, representativeData = 30, clusters = 500;
+LAMBDA = 10; Iterations = 10000; 
+0.622906666666667	0.574666666666667	0.646666666666667
+
+stepCount = 5, KNN = 7, representativeData = 30, clusters = 500;
+LAMBDA = 10; Iterations = 10000; 
+0.568720000000000	0.379333333333333	0.654666666666667
+
+stepCount = 5, KNN = 7, representativeData = 30, clusters = 1000;
+LAMBDA = 10; Iterations = 10000;
+0.606106666666667	0.495333333333333	0.642666666666667
+LAMBDA = 10; Iterations = 100000;
+0.660306666666667	0.651333333333333	0.669333333333333
+
+Changing CLUSTERS:
+stepCount = 5, KNN = 3, representativeData = 15, clusters = 1500; Slow complile
+LAMBDA = 10; Iterations = 10000; 
+0.589720000000000	0.569333333333333	0.603333333333333
+
+stepCount = 5, KNN = 3, representativeData = 15, clusters = 1000;
+LAMBDA = 10; Iterations = 10000; 
+0.571680000000000	0.553333333333333	0.586000000000000
+
+stepCount = 5, KNN = 3, representativeData = 15, clusters = 500; Fast compile
+LAMBDA = 10; Iterations = 1000000; 
+0.673146666666667	0.666000000000000	0.683333333333334
+
+stepCount = 5, KNN = 3, representativeData = 15, clusters = 250[;
+LAMBDA = 10; Iterations = 10000; 
+0.560920000000000	0.438666666666667	0.612666666666667
+
+
+
+% Interpreting your performance with 100 raining examples per category:
+%  accuracy  =   0 -> Your code is broken (probably not the classifier's
+%                     fault! A classifier would have to be amazing to
+%                     perform this badly).
+%  accuracy ~= .07 -> Your performance is chance. Something is broken or
+%                     you ran the starter code unchanged.
+%  accuracy ~= .20 -> Rough performance with tiny images and nearest
+%                     neighbor classifier. Performance goes up a few
+%                     percentage points with K-NN instead of 1-NN.
+%  accuracy ~= .20 -> Rough performance with tiny images and linear SVM
+%                     classifier. The linear classifiers will have a lot of
+%                     trouble trying to separate the classes and may be
+%                     unstable (e.g. everything classified to one category)
+%  accuracy ~= .50 -> Rough performance with bag of SIFT and nearest
+%                     neighbor classifier. Can reach .60 with K-NN and
+%                     different distance metrics.
+%  accuracy ~= .60 -> You've gotten things roughly correct with bag of
+%                     SIFT and a linear SVM classifier.
+%  accuracy >= .70 -> You've also tuned your parameters well. E.g. number
+%                     of clusters, SVM regularization, number of patches
+%                     sampled when building vocabulary, size and step for
+%                     dense SIFT features.
+%  accuracy >= .80 -> You've added in spatial information somehow or you've
+%                     added additional, complementary image features. This
+%                     represents state of the art in Lazebnik et al 2006.
+%  accuracy >= .85 -> You've done extremely well. This is the state of the
+%                     art in the 2010 SUN database paper from fusing many 
+%                     features. Don't trust this number unless you actually
+%                     measure many random splits.
+%  accuracy >= .90 -> You get to teach the class next year.
+%  accuracy >= .96 -> You can beat a human at this task. This isn't a
+%                     realistic number. Some accuracy calculation is broken
+%                     or your classifier is cheating and seeing the test
+%                     labels.
